@@ -28,3 +28,7 @@ re (PlusI x y) = x
 
 im :: CC -> REAL
 im (PlusI x y) = y
+
+-- Sum of two complex number
+addCC :: CC -> CC -> CC
+addCC (PlusI a b) (PlusI x y) = PlusI (a + b) (b + y)
