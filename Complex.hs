@@ -25,3 +25,6 @@ equalityCheck (PlusI a b) (PlusI x y) = a==x && b==y
 
 re :: CC -> REAL
 re (PlusI x y) = x
+
+im :: CC -> REAL
+im (PlusI x y) = y
