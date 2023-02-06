@@ -13,7 +13,7 @@ showCB :: CB -> String
 showCB (Plus1 x y i) = show x ++ "+" ++ show y ++ "i"
 showCB (Plus2 x i y) = show x ++ "+" ++ "i" ++ show y
 
-
+-- Semantics side
 -- PlusI a b == Plus1 a b i == Plus2 a i b 
 data CC where
     PlusI :: REAL -> REAL -> CC   -- Real part + imaginary part
@@ -32,3 +32,21 @@ im (PlusI x y) = y
 -- Sum of two complex number
 addCC :: CC -> CC -> CC
 addCC (PlusI a b) (PlusI x y) = PlusI (a + b) (b + y)
+
+mulCC :: CC -> CC -> CC
+mulCC (PlusI a b) (PlusI x y) = PlusI r c where
+    r = a + x - b*y
+    c = a*y + b*x
+
+-- Syntax side
+data CE where
+    Add :: CE -> CE -> CE
+    Mul :: CE -> CE -> CE
+    RCon :: REAL -> CE  -- REAL constants
+    I :: CE
+
+eval :: CE -> CC
+eval (Add e1 e2) = addCC (eval e1) eval (eval e2)
+eval (Mul x y) = 
+eval I = 
+eval (RCon r) = r
