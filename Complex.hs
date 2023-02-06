@@ -38,9 +38,11 @@ mulCC (PlusI a b) (PlusI x y) = PlusI r c where
     r = a + x - b*y
     c = a*y + b*x
 
-
 rconCC :: REAL -> CC
 rconCC r = PlusI r 0
+
+iCC :: CC
+iCC = PlusI 0 1
 
 -- Syntax side
 data CE where
@@ -52,5 +54,5 @@ data CE where
 eval :: CE -> CC
 eval (Add e1 e2) = addCC (eval e1) (eval e2)
 eval (Mul e1 e2) = mulCC (eval e1) (eval e2) 
-eval I = todo 
+eval I = iCC
 eval (RCon r) = rconCC r
