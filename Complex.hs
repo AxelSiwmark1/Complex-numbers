@@ -19,3 +19,7 @@ data CC where
     PlusI :: REAL -> REAL -> CC   -- Real part + imaginary part
     deriving (Show)
 
+
+equalityCheck :: CC -> CC -> Bool
+equalityCheck (PlusI a b) (PlusI x y) = a==x && b==y
+
