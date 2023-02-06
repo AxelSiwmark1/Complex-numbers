@@ -10,5 +10,6 @@ data CB where
  deriving (Show)
 -- Print complex number for ease of use
 showCB :: CB -> String
-showCB (Plus1 x y IU) = show x ++ "+" ++ show y ++ "i"
-showCB (Plus2 x IU y) = show x ++ "+" ++ "i" ++ show y
+showCB (Plus1 x y i) = show x ++ "+" ++ show y ++ "i"
+showCB (Plus2 x i y) = show x ++ "+" ++ "i" ++ show y
+
