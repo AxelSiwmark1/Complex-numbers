@@ -13,3 +13,9 @@ showCB :: CB -> String
 showCB (Plus1 x y i) = show x ++ "+" ++ show y ++ "i"
 showCB (Plus2 x i y) = show x ++ "+" ++ "i" ++ show y
 
+
+-- PlusI a b == Plus1 a b i == Plus2 a i b 
+data CC where
+    PlusI :: REAL -> REAL -> CC   -- Real part + imaginary part
+    deriving (Show)
+
