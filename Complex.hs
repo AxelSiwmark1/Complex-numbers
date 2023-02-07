@@ -60,3 +60,5 @@ eval (RCon r) = rconCC r
 
 e1 :: CE
 e1 = Add (RCon 3) I
+e2 :: CE
+e2 = Mul (RCon 5) I
