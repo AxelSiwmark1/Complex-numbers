@@ -31,7 +31,7 @@ im (PlusI x y) = y
 
 -- Sum of two complex number
 addCC :: CC -> CC -> CC
-addCC (PlusI a b) (PlusI x y) = PlusI (a + b) (b + y)
+addCC (PlusI a b) (PlusI x y) = PlusI (a + x) (b + y)
 
 mulCC :: CC -> CC -> CC
 mulCC (PlusI a b) (PlusI x y) = PlusI r c where
@@ -50,6 +50,7 @@ data CE where
     Mul :: CE -> CE -> CE
     RCon :: REAL -> CE  -- REAL constants
     I :: CE
+    deriving(Show)
 
 eval :: CE -> CC
 eval (Add e1 e2) = addCC (eval e1) (eval e2)
