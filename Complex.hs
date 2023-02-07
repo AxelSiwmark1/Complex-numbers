@@ -56,3 +56,6 @@ eval (Add e1 e2) = addCC (eval e1) (eval e2)
 eval (Mul e1 e2) = mulCC (eval e1) (eval e2) 
 eval I = iCC
 eval (RCon r) = rconCC r
+
+e1 :: CE
+e1 = Add (RCon 3) I
