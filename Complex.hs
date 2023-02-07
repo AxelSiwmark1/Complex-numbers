@@ -58,7 +58,11 @@ eval (Mul e1 e2) = mulCC (eval e1) (eval e2)
 eval I = iCC
 eval (RCon r) = rconCC r
 
+
+--Test cases
+-- 3 + i
 e1 :: CE
 e1 = Add (RCon 3) I
+-- 5*i
 e2 :: CE
 e2 = Mul (RCon 5) I
