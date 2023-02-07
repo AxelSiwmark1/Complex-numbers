@@ -35,7 +35,7 @@ addCC (PlusI a b) (PlusI x y) = PlusI (a + x) (b + y)
 
 mulCC :: CC -> CC -> CC
 mulCC (PlusI a b) (PlusI x y) = PlusI r c where
-    r = a + x - b*y
+    r = a*x - b*y
     c = a*y + b*x
 
 rconCC :: REAL -> CC
