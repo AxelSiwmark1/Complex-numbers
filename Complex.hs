@@ -38,8 +38,13 @@ mulCC (PlusI a b) (PlusI x y) = PlusI r c where
     r = a*x - b*y
     c = a*y + b*x
 
+-- (a + bi)(x - yi)
+--  a*x + b*y
 divCC :: CC -> CC -> CC
-divCC (PlusI a b) (PlusI x y) = error"todo"
+divCC (PlusI a b) (PlusI x y) = PlusI real img
+    where
+        real = (a*x - b*y) / (a*x + b*y)
+        img = error
 
 rconCC :: REAL -> CC
 rconCC r = PlusI r 0
