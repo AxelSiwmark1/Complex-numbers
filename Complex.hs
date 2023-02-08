@@ -38,6 +38,9 @@ mulCC (PlusI a b) (PlusI x y) = PlusI r c where
     r = a*x - b*y
     c = a*y + b*x
 
+divCC :: CC -> CC -> CC
+divCC (PlusI a b) (PlusI x y) = error"todo"
+
 rconCC :: REAL -> CC
 rconCC r = PlusI r 0
 
@@ -48,6 +51,7 @@ iCC = PlusI 0 1
 data CE where
     Add :: CE -> CE -> CE
     Mul :: CE -> CE -> CE
+    DIV :: CE -> CE -> CE
     RCon :: REAL -> CE  -- REAL constants
     I :: CE
     deriving(Show)
