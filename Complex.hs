@@ -56,7 +56,7 @@ iCC = PlusI 0 1
 data CE where
     Add :: CE -> CE -> CE
     Mul :: CE -> CE -> CE
-    DIV :: CE -> CE -> CE
+    Div :: CE -> CE -> CE
     RCon :: REAL -> CE  -- REAL constants
     I :: CE
     deriving(Show)
@@ -64,6 +64,7 @@ data CE where
 eval :: CE -> CC
 eval (Add e1 e2) = addCC (eval e1) (eval e2)
 eval (Mul e1 e2) = mulCC (eval e1) (eval e2) 
+eval (Div e1 e2) = divCC (eval e1) (eval e2)
 eval I = iCC
 eval (RCon r) = rconCC r
 
