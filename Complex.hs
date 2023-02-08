@@ -44,7 +44,7 @@ divCC :: CC -> CC -> CC
 divCC (PlusI a b) (PlusI x y) = PlusI real img
     where
         real = (a*x - b*y) / (a*x + b*y)
-        img = error
+        img = (b - y) / (a*x + b*y)
 
 rconCC :: REAL -> CC
 rconCC r = PlusI r 0
